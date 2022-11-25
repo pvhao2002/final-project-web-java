@@ -1,40 +1,167 @@
-/* =====================================
-Template Name: Eshop
-Author Name: Naimur Rahman
-Author URI: http://www.wpthemesgrid.com/
-Description: Eshop - eCommerce HTML5 Template.
-Version:1.0
-========================================*/
-/*======================================
-[ CSS Table of contents ]
-01. Preloader CSS
-02. Header CSS
-	+ Logo
-	+ Category Menu
-	+ Main Menu
-03. Hero Area CSS
-04. Small Banner CSS
-05. Medium Banner CSS
-06. Single Product CSS
-07. Shop Sidebar CSS
-08. Shop Single CSS
-09. Shop Home List CSS
-10. Cart CSS
-11. Checkout CSS
-12. Login & Register CSS
-13. Cowndown CSS
-14. Shop Services CSS
-15. Newslatter CSS
-16. About Us CSS
-17. Team CSS
-18. Blog CSS
-	+ Blog Archive
-	+ Blog Sidebar
-	+ Blog Single
-19. Contact CSS
-20. 404 Error CSS
-21. Footer CSS
-========================================*/
+.content_banner {
+    width: 100%;
+    background-color: #ededed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.content__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    background-color: #ededed;
+    margin-top: 1rem;
+    border-radius: 5px;
+    margin-bottom: 3rem;
+}
+.main {
+    display: contents;
+    justify-content: flex-end;
+    align-items: stretch;
+    width: 100%;
+    overflow: hidden;
+    background-color: inherit;
+    border-radius: 5px;
+    margin-bottom: 2rem;
+}
+.main .homepage {
+    background-color: #ededed;
+    width: 77%;
+    display: flex;
+    align-items: stretch;
+    flex-direction: column;
+    justify-content: stretch;
+    border-radius: 5px;
+    overflow: hidden;
+}
+.main .homepage-image {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+}
+.main .homepage-left {
+    border-radius: 5px;
+    overflow: hidden;
+    width: 66.7%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    position: relative;
+}
+.main .homepage-left:hover .homepage-left-icon-back {
+    opacity: 1;
+}
+.main .homepage-left:hover .homepage-left-icon-next {
+    opacity: 1;
+}
+.main .homepage-left img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+    transform-style: preserve-3d;
+}
+.main .homepage-left-icon-back {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    font-size: 1.5rem;
+    width: 2rem;
+    height: 4rem;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    cursor: pointer;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    opacity: 0;
+    transition: all 0.25s linear;
+    z-index: 2;
+    box-shadow: rgb(51 51 51 / 20%) 0px 0px 10px;
+}
+.main .homepage-left-icon-next {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    font-size: 1.5rem;
+    width: 2rem;
+    height: 4rem;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    cursor: pointer;
+    border-bottom-left-radius: 5px;
+    border-top-left-radius: 5px;
+    opacity: 0;
+    transition: all 0.25s linear;
+    z-index: 2;
+    box-shadow: rgb(51 51 51 / 20%) 0px 0px 10px;
+}
+.main .homepage-right {
+    border-radius: 5px;
+    overflow: hidden;
+    width: 32.2%;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    flex-direction: column;
+}
+.main .homepage-right-item img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    border-radius: 5px;
+}
+.main .homepage-brands {
+    border-radius: 5px;
+    margin-top: 1rem;
+    background-color: white;
+    overflow: hidden;
+}
+.main .homepage-brands-title {
+    border-bottom: 1px solid #ededed;
+    padding: 0.5rem 2rem;
+}
+.main .homepage-brands-group {
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+.main .homepage-brands-group-top,
+.main .homepage-brands-group-bot {
+    overflow: hidden;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    min-width: 80rem;
+}
+.main .homepage-brands-body {
+    padding: 1rem 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    overflow-x: auto;
+}
+.main .homepage-brands-item {
+    width: 16.6666666667%;
+    min-width: 10rem;
+    margin: 1rem;
+    transition: all 0.1s linear;
+}
+.main .homepage-brands-item img {
+    text-align: center;
+}
+.main .homepage-brands-item:hover {
+    box-shadow: 0 0 10px 6px #ededed;
+}
 .right-bar .sinlge-bar.flex {
     display: flex !important;
 }
@@ -434,9 +561,8 @@ Version:1.0
     color:#F7941D;
 }
 .header.shop .nav li {
-    margin-right: 40px;
-    float: left;
-    position: relative;
+    width: 150px;
+    text-align: center;
 }
 .header.shop .nav li {
     margin-right: 38px;
@@ -721,7 +847,6 @@ Version:1.0
     width: 62px;
     text-align: center;
     font-size: 18px;
-    color: #fff;
     background: #333333;
     position: absolute;
     right: -2px;
@@ -733,8 +858,11 @@ Version:1.0
     transition: all 0.4s ease;
 }
 .header.shop .search-bar .btnn:hover{
-    color:#fff;
+    color:#333;
     background:#F7941D;
+}
+.header.shop .search-bar .btnn:hover .ti-search{
+    color:#333;
 }
 /* Search Form */
 .header.shop .search-top {
@@ -774,6 +902,10 @@ Version:1.0
     background: transparent;
     position: relative;
     background: #f7941d;
+    height:68px;
+}
+.header.shop .all-category:hover > .main-category {
+    display: block ;
 }
 .header.shop .all-category h3{
     padding: 22px 25px;
@@ -791,7 +923,6 @@ Version:1.0
 .header.shop .main-category {
     position: absolute;
     left: 0;
-    top: 64px;
     background: #fff;
     z-index: 1;
     width: 100%;
@@ -799,6 +930,10 @@ Version:1.0
     -moz-box-shadow: 0px 5px 15px #0000000a;
     box-shadow: 0px 5px 15px #0000000a;
     border: 1px solid #555555;
+    display: none;
+}
+.main-category{
+    display: none;
 }
 .header.shop .main-category li{
     display:block;
@@ -814,6 +949,10 @@ Version:1.0
     padding: 13px 25px 13px 25px;
     display: block;
     text-transform: uppercase;
+}
+.header.shop .main-category li:hover a{
+    color:#fff;
+    background:#F7941D;
 }
 .header.shop .main-category li a i{
     display:inline-block;
@@ -843,9 +982,7 @@ Version:1.0
 .header.shop .main-category li a{
     text-transform:capitalize;
 }
-.header.shop .main-category li a:hover{
-    color:#F7941D;
-}
+
 .header.shop .main-category .main-mega{
     position:relative;
 }
@@ -925,12 +1062,7 @@ Version:1.0
     float: right;
 }
 .header.shop .nav li {
-    margin-right: 40px;
-    float: left;
-    position: relative;
-}
-.header.shop .nav li {
-    margin-right:5px;
+    margin-right:0;
     position: relative;
     float: none;
 }
@@ -1158,7 +1290,9 @@ Version:1.0
     width:100%;
     z-index:999;
 }
-.header.sticky .all-category{}
+.header.sticky .all-category{
+
+}
 .header.sticky .all-category h3{
     cursor:pointer;
 
@@ -2026,7 +2160,7 @@ Version:1.0
 .single-product .product-content .product-price {
     margin: 6px 0 0 0;
 }
-.single-product .product-content .product-price span {
+.single-product .product-content .product-price .vnd{
     font-size: 18px;
     font-weight: 500;
     color: red;

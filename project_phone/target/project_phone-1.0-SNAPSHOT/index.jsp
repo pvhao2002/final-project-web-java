@@ -16,7 +16,7 @@
     <!-- Web Font -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
     <!-- StyleSheet -->
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <!-- Bootstrap -->
     <link rel="stylesheet" href="css/bootstrap.css">
     <!-- Magnific Popup -->
@@ -47,19 +47,6 @@
 
 </head>
 <body class="js">
-
-<!-- Preloader -->
-<div class="preloader">
-    <div class="preloader-inner">
-        <div class="preloader-icon">
-            <span></span>
-            <span></span>
-        </div>
-    </div>
-</div>
-<!-- End Preloader -->
-
-
 <!-- Header -->
 <header class="header shop">
     <!-- Topbar -->
@@ -107,7 +94,7 @@
                     <div class="right-bar jcontent-space-between" style="width:280px">
                         <!-- Search Form -->
                         <div class="sinlge-bar flex">
-                            <i class="fa fa-user-circle-o" style="font-size:24px;"></i>
+                            <i class="fa fa-user-circle-o" style="font-size:24px;color:#f6931d;"></i>
                             <a href="#" class="single-content">Tài Khoản</a>
                         </div>
                         <div class="sinlge-bar shopping flex">
@@ -128,16 +115,9 @@
                         <div class="all-category">
                             <h3 class="cat-heading"><i class="fa fa-bars" aria-hidden="true"></i>DANH MỤC SẢN PHẨM</h3>
                             <ul class="main-category">
-                                <li><a href="#">Điện thoại iPhone</a></li>
-                                <li><a href="#">Điện thoại SamSung</a></li>
-                                <li><a href="#">Điện thoại Oppo</a></li>
-                                <li><a href="#">Điện thoại Vivo</a></li>
-                                <li><a href="#">Điện thoại Nokia</a></li>
-                                <li><a href="#">Điện thoại Xiaomi</a></li>
-                                <li><a href="#">Điện thoại Huawei</a></li>
-                                <li><a href="#">Điện thoại Mobi</a></li>
-                                <li><a href="#">Điện thoại Itel</a></li>
-                                <li><a href="#">Điện thoại Realme</a></li>
+                                <c:forEach items="${data}" var="o">
+                                    <li><a href="shop1?cid=${o.id}">Điện thoại ${o.name}</a></li>
+                                </c:forEach>
                             </ul>
                         </div>
                     </div>
@@ -148,19 +128,13 @@
                                 <div class="navbar-collapse">
                                     <div class="nav-inner">
                                         <ul class="nav main-menu menu navbar-nav">
-                                            <li class="active"><a href="home">Home</a></li>
-                                            <li><a href="#">Product</a></li>
-                                            <li><a href="#">Service</a></li>
-                                            <li><a href="#">Shop<i class="ti-angle-down"></i></a>
+                                            <li><a href="home">Home</a></li>
+                                            <li><a href="shop">Shop</a></li>
+                                            <li><a href="shopDetail">Shop Detail</a></li>
+                                            <li><a href="#">Pages<i class="ti-angle-down"></i></a>
                                                 <ul class="dropdown">
                                                     <li><a href="cart.html">Cart</a></li>
                                                     <li><a href="checkout.html">Checkout</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="#">Pages</a></li>
-                                            <li><a href="#">Blog<i class="ti-angle-down"></i></a>
-                                                <ul class="dropdown">
-                                                    <li><a href="blog-single-sidebar.html">Blog Single Sidebar</a></li>
                                                 </ul>
                                             </li>
                                             <li><a href="contact.html">Contact Us</a></li>
@@ -179,11 +153,30 @@
 </header>
 <!--/ End Header -->
 
-<!-- Slider Area -->
-<section class="hero-slider">
-    <div class="single-slider"></div>
-</section>
-<!--/ End Slider Area -->
+<div class="content_banner">
+    <div class="content__container">
+        <div class="main">
+            <div class="homepage">
+                <div class="homepage-image">
+                    <div class="homepage-left">
+                        <i class="fas fa-chevron-left homepage-left-icon-back"></i> <a href="" class="homepage-left-item">
+                        <img src="images/banner3.png"
+                             alt="" class="homepage-left-img">
+                        </a> <i class="fas fa-chevron-right homepage-left-icon-next"></i>
+                    </div>
+                    <div class="homepage-right">
+                        <a href="#" class="homepage-right-item">
+                            <img src="images/banner1.png">
+                        </a>
+                        <a href="#" class="homepage-right-item">
+                            <img src="images/banner2.png">
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <!-- Start Product Area -->
 <div class="product-area section">
@@ -220,7 +213,7 @@
                                                 <div class="product-content">
                                                     <h3><a href="product-details.html">${o.title}</a></h3>
                                                     <div class="product-price">
-                                                        <span>${o.price}</span>
+                                                        <p class="vnd"><span>${o.price} </span> VNĐ</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -269,8 +262,8 @@
                             <div class="product-content">
                                 <h3><a href="product-details.html">${o.title}</a></h3>
                                 <div class="product-price">
-                                        <%--                                <span class="old">$60.00</span>--%>
-                                    <span>${o.price}</span>
+                                    <span class="old">${o.price} VNĐ</span>
+                                    <p class="vnd"><span>${o.price} </span> VNĐ</p>
                                 </div>
                             </div>
                         </div>
@@ -308,7 +301,7 @@
                             <div class="col-lg-6 col-md-6 col-12 no-padding">
                                 <div class="content">
                                     <h4 class="title"><a href="#">${o.title}</a></h4>
-                                    <p class="price with-discount">${o.price}</p>
+                                    <p class="price with-discount">${o.price} VNĐ</p>
                                 </div>
                             </div>
                         </div>
@@ -320,7 +313,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="shop-section-title">
-                            <h1>Trả góp 0%</h1>
+                            <h1>Sản phẩm cũ</h1>
                         </div>
                     </div>
                 </div>
@@ -337,7 +330,7 @@
                             <div class="col-lg-6 col-md-6 col-12 no-padding">
                                 <div class="content">
                                     <h5 class="title"><a href="#">${o.title}</a></h5>
-                                    <p class="price with-discount">${o.price}</p>
+                                    <p class="price with-discount">${o.price} VNĐ</p>
                                 </div>
                             </div>
                         </div>
@@ -366,7 +359,7 @@
                             <div class="col-lg-6 col-md-6 col-12 no-padding">
                                 <div class="content">
                                     <h5 class="title"><a href="#">${o.title}</a></h5>
-                                    <p class="price with-discount">${o.price}</p>
+                                    <p class="price with-discount">${o.price} VNĐ</p>
                                 </div>
                             </div>
                         </div>
@@ -539,5 +532,6 @@
 <script src="js/easing.js"></script>
 <!-- Active JS -->
 <script src="js/active.js"></script>
+<script src="js/homepage.js"></script>
 </body>
 </html>

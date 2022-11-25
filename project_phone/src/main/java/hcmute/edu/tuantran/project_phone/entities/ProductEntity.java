@@ -1,23 +1,40 @@
 package hcmute.edu.tuantran.project_phone.entities;
 
 public class ProductEntity {
-    private long id;
+    private int id;
     private String title;
-    private String price;
+    private long price;
     private String size;
     private String color;
     private String description;
     private String type;
     private String image;
+    private int catid;
 
     public ProductEntity() {
     }
 
-    public long getId() {
+    public ProductEntity(int id, String title, long price, String size, String color, String description, String type, String image, int catid) {
+        this.id = id;
+        this.title = title;
+        this.price = price;
+        this.size = size;
+        this.color = color;
+        this.description = description;
+        this.type = type;
+        this.image = image;
+        this.catid = catid;
+    }
+
+    public int getCatid() {return catid;}
+
+    public void setCatid(int catid) {this.catid = catid;}
+
+    public int getId() {
         return id;
     }
 
-    public void setId(long id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -29,47 +46,27 @@ public class ProductEntity {
         this.title = title;
     }
 
-    public String getPrice() {
-        return price;
-    }
+    public long getPrice() { return price;}
 
-    public void setPrice(String price) {
-        this.price = price;
-    }
+    public void setPrice(long price) { this.price = price;}
 
-    public String getSize() {
-        return size;
-    }
+    public String getSize() {return size;}
 
-    public void setSize(String size) {
-        this.size = size;
-    }
+    public void setSize(String size) {this.size = size;}
 
-    public String getColor() {
-        return color;
-    }
+    public String getColor() {return color;}
 
-    public void setColor(String color) {
-        this.color = color;
-    }
+    public void setColor(String color) {this.color = color;}
 
-    public String getDescription() {
-        return description;
-    }
+    public String getDescription() {return description;}
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+    public void setDescription(String description) {this.description = description;}
 
-    public String getImage() {
-        return image;
-    }
+    public String getImage() {return image;}
 
     public void setImage(String image) { this.image = image;}
 
-    public String getType() {
-        return type;
-    }
+    public String getType() {return type;}
 
     public void setType(String type) { this.type = type; }
 }

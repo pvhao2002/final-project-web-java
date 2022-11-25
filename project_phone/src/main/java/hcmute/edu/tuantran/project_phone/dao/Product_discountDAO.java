@@ -1,5 +1,6 @@
 package hcmute.edu.tuantran.project_phone.dao;
 
+import hcmute.edu.tuantran.project_phone.entities.Category;
 import hcmute.edu.tuantran.project_phone.entities.ProductEntity;
 import hcmute.edu.tuantran.project_phone.util.ConnectionUtil;
 
@@ -24,13 +25,14 @@ public class Product_discountDAO {
 
             while (rs.next()) {
                 ProductEntity product = new ProductEntity();
-                product.setId(rs.getLong("id"));
+                product.setId(rs.getInt("id"));
                 product.setTitle(rs.getString("title"));
-                product.setPrice(rs.getString("price"));
+                product.setPrice(rs.getLong("price"));
                 product.setSize(rs.getString("size"));
                 product.setDescription(rs.getString("description"));
                 product.setImage(rs.getString("image"));
                 product.setType(rs.getString("type"));
+                product.setCatid(rs.getInt("catid"));
 
                 products.add(product);
             }

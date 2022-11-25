@@ -225,10 +225,9 @@ big {
 	padding: 100px 0;
 	position: relative;
 }
-.product-area.section {
-	padding-bottom: 0;
-	padding-top: 0;
-}
+/*.product-area.section {*/
+/*	padding-bottom: 0;*/
+/*}*/
 .product-area.most-popular.section{
 	padding-top: 100px;
 }
