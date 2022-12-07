@@ -99,11 +99,11 @@ class ProductDAOTest {
 //        listProduct.forEach(p -> System.out.println(p.getProductName()));
 //    }
 
-//    @Test
-//    public void testrandomProduct() {
-//        List<Product> listProduct = productDAO.randomProduct();
-//        listProduct.forEach(p -> System.out.println(p.getProductName()));
-//    }
+    @Test
+    public void testrandomProduct() {
+        List<Product> listProduct = productDAO.randomProduct();
+        listProduct.forEach(p -> System.out.println(p.getProductName()));
+    }
 
 
 }

@@ -30,11 +30,15 @@ public class ShopDetailServlet extends HttpServlet {
 
         Product p = null;
         String id = request.getParameter("pid");
-        if(id == null) {
-            p = null;
-        }else{
-            int pid=Integer.parseInt(id);
-            p = information.getProductById(pid);
+        try {
+            if (id == null) {
+                p = null;
+            } else {
+                int pid = Integer.parseInt(id);
+                p = information.getProductById(pid);
+            }
+        }catch (Exception e) {
+            e.printStackTrace();
         }
 
         CategoryDAO categoryDAO = new CategoryDAO();

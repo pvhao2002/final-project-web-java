@@ -1,5 +1,7 @@
 package com.uteshop.controller.shop;
 
+import com.uteshop.util.SesstionUtil;
+
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
@@ -14,9 +16,7 @@ public class LogoutServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-        HttpSession session = request.getSession();
-        session.removeAttribute("account");
+        SesstionUtil.getInstance().removeValue(request, "account");
         response.sendRedirect("home");
     }
 }

@@ -11,6 +11,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 @Table(name = "users")
 @NamedQueries({
         @NamedQuery(name = "User.findAll", query = "SELECT u FROM User u"),
+        @NamedQuery(name = "User.countAll", query = "SELECT COUNT(*) FROM User u"),
         @NamedQuery(name = "User.checkEmailAndPassword", query = "SELECT u FROM User u WHERE u.email = :email AND password = :password"),
         @NamedQuery(name = "User.checkAccountExist", query = "SELECT u FROM User u WHERE u.email = :email")
 })

@@ -8,7 +8,7 @@
     <meta name='copyright' content=''>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>UTEShop</title>
+    <title>UTEShop-Trang-chu</title>
     <link rel="icon" type="image/png" href="images/favicon-32x32.png">
     <link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -81,32 +81,41 @@
         <div class="row">
             <div class="col-12">
                 <div class="section-title">
-                    <h2>Nỗi bật nhất</h2>
+                    <h2>Xu hướng</h2>
                 </div>
                 <div class="product-info">
-                    <c:forEach items="${product_outstandingList}" var="o">
-                        <div class="col-xl-3 col-lg-4 col-md-4 col-12">
-                            <div class="single-product">
-                                <div class="product-img">
-                                    <a href="shopDetail?pid=${o.infoId.infoId}">
-                                        <img class="default-img" src="${o.image}">
-                                            <%--<img class="hover-img" src="${o.image}">--%>
-                                    </a>
-                                    <div class="button-head">
-                                        <div class="product-action-2">
-                                            <a href="#">Thêm vào giỏ hàng</a>
+                    <div class="tab-content" id="myTabContent">
+                        <!-- Start Single Tab -->
+                        <div class="tab-pane fade show active" id="man" role="tabpanel">
+                            <div class="tab-single">
+                                <div class="row">
+                                    <c:forEach items="${product_trendList}" var="o">
+                                        <div class="col-xl-3 col-lg-4 col-md-4 col-12">
+                                            <div class="single-product">
+                                                <div class="product-img">
+                                                    <a href="shopDetail?pid=${o.infoId.infoId}">
+                                                        <img class="default-img" src="${o.image}">
+                                                            <%--<img class="hover-img" src="${o.image}">--%>
+                                                    </a>
+                                                    <div class="button-head">
+                                                        <div class="product-action-2">
+                                                            <a href="#">Thêm vào giỏ hàng</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="product-content">
+                                                    <h3><a href="shopDetail?pid=${o.infoId.infoId}">${o.productName}</a></h3>
+                                                    <div class="product-price">
+                                                        <p class="vnd"><span>${o.price} </span> VNĐ</p>
+                                                    </div>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
-                                </div>
-                                <div class="product-content">
-                                    <h3><a href="shopDetail?pid=${o.infoId.infoId}">${o.productName}</a></h3>
-                                    <div class="product-price">
-                                        <p class="vnd"><span>${o.price} </span> VNĐ</p>
-                                    </div>
+                                    </c:forEach>
                                 </div>
                             </div>
                         </div>
-                    </c:forEach>
+                    </div>
                 </div>
             </div>
         </div>

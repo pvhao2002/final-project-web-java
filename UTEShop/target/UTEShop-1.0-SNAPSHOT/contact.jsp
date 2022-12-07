@@ -8,7 +8,7 @@
     <meta name='copyright' content=''>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>UTEShop</title>
+    <title>UTEShop-Lien-he</title>
     <link rel="icon" type="image/png" href="images/favicon-32x32.png">
     <link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -33,7 +33,20 @@
 <!-- Header -->
 <jsp:include page="common/header.jsp"></jsp:include>
 <!--/ End Header -->
-
+<div class="breadcrumbs">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="bread-inner">
+                    <ul class="bread-list">
+                        <li><a href="home">Trang chủ<i class="ti-arrow-right"></i></a></li>
+                        <li class="active">Liên hệ</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- Start Contact -->
 <section id="contact-us" class="contact-us section">
     <div class="container">
@@ -42,43 +55,46 @@
                 <div class="col-lg-8 col-12">
                     <div class="form-main">
                         <div class="title">
+                            <c:if test = "${check == 1}">
+                                <h5 class="success">${message}</h5>
+                            </c:if>
                             <h3>Viết cho chúng tôi một tin nhắn</h3>
                         </div>
-                        <form class="form" method="post" action="mail/mail.php">
+                        <form class="form" method="post" action="contact">
                             <div class="row">
                                 <div class="col-lg-6 col-12">
                                     <div class="form-group">
-                                        <label>Tên của bạn<span>*</span></label>
-                                        <input name="name" type="text" placeholder="">
+                                        <label>Họ tên của bạn<span>*</span></label>
+                                        <input name="name" type="text" required="required" placeholder="">
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-12">
                                     <div class="form-group">
                                         <label>Chủ đề<span>*</span></label>
-                                        <input name="subject" type="text" placeholder="">
+                                        <input name="subject" type="text" required="required" placeholder="">
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-12">
                                     <div class="form-group">
                                         <label>Email của bạn<span>*</span></label>
-                                        <input name="email" type="email" placeholder="">
+                                        <input name="email" type="email" required="required" placeholder="">
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-12">
                                     <div class="form-group">
                                         <label>Số điện thoại của bạn<span>*</span></label>
-                                        <input name="company_name" type="text" placeholder="">
+                                        <input name="company_name" type="text" required="required" placeholder="">
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group message">
                                         <label>Tin nhắn<span>*</span></label>
-                                        <textarea name="message" placeholder=""></textarea>
+                                        <textarea name="message" required="required" placeholder=""></textarea>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group button">
-                                        <button type="submit" class="btn ">Send Message</button>
+                                        <button type="submit" class="btn">Gửi tin nhắn</button>
                                     </div>
                                 </div>
                             </div>
@@ -97,21 +113,21 @@
                             </div>
                             <i class="fa fa-phone"></i>
                             <ul>
-                                <li>+123 456-789-1120</li>
-                                <li>+522 672-452-1120</li>
+                                <li>0337981963</li>
+                                <li>0945013987</li>
                             </ul>
                         </div>
                         <div class="single-info">
                             <i class="fa fa-envelope-open"></i>
                             <ul>
-                                <li><a href="mailto:info@yourwebsite.com">info@yourwebsite.com</a></li>
-                                <li><a href="mailto:info@yourwebsite.com">support@yourwebsite.com</a></li>
+                                <li><a href="mailto:info@yourwebsite.com">20110595@student.hcmute.edu.vn</a></li>
+                                <li><a href="mailto:info@yourwebsite.com">20110470@student.hcmute.edu.vn</a></li>
                             </ul>
                         </div>
                         <div class="single-info">
                             <i class="fa fa-location-arrow"></i>
                             <ul>
-                                <li>KA-62/1, Travel Agency, 45 Grand Central Terminal, New York.</li>
+                                <li>20 Đường số 3, Linh Trung, Thủ Đức</li>
                             </ul>
                         </div>
                     </div>

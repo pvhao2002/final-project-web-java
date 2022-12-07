@@ -9,7 +9,7 @@
     <meta name='copyright' content=''>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>UTEShop</title>
+    <title>UTEShop-Chi-tiet-san-pham</title>
     <link rel="icon" type="image/png" href="images/favicon-32x32.png">
     <link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap"
             rel="stylesheet">
@@ -44,8 +44,8 @@
             <div class="col-12">
                 <div class="bread-inner">
                     <ul class="bread-list">
-                        <li><a href="home">Home<i class="ti-arrow-right"></i></a></li>
-                        <li class="active">Shop Detail</li>
+                        <li><a href="home">Trang chủ<i class="ti-arrow-right"></i></a></li>
+                        <li class="active">Chi tiết sản phẩm</li>
                     </ul>
                 </div>
             </div>
@@ -103,7 +103,7 @@
                                         </button>
                                     </div>
                                 </div>
-                                <button class="btn btn-primary px-3"><i class="fa fa-shopping-cart mr-1" style="color: #fff"></i> Add To Cart</button>
+                                <button class="btn btn-primary px-3"><i class="fa fa-shopping-cart mr-1" style="color: #fff"></i> Thêm vào giỏ hàng</button>
                             </div>
                         </div>
                         <div class="info_product">
@@ -122,7 +122,7 @@
                         </div>
                     </div>
                 </div>
-                    <h4 class="des">Product Description</h4>
+                    <h4 class="des">Mô tả</h4>
                     <div class="padding">${product.description}</div>
 
                     <!-- Start Product discount-->

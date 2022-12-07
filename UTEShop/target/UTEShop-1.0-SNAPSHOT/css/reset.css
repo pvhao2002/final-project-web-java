@@ -663,6 +663,8 @@ textarea {
 	border: 1px solid #ccc;
 	border-radius: 3px;
 	padding: 3px;
+	width: 85%;
+	font-size: 13px;
 }
 
 input[type="text"]:focus,

@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sign Up Form by Colorlib</title>
+    <title>UTEShop-Dang-nhap</title>
 
     <!-- Font Icon -->
     <link rel="stylesheet"
@@ -27,42 +27,35 @@
                     <figure>
                         <img src="images/signin-image.jpg" alt="sing up image">
                     </figure>
-                    <a href="registration.jsp" class="signup-image-link">Create an
-                        account</a>
+                    <a href="signup" class="signup-image-link">Tạo tài khoản</a>
                 </div>
 
                 <div class="signin-form">
                     <form method="post" action="login" class="register-form" id="login-form">
-                        <h2 class="form-title">Sign in</h2>
+                        <h2 class="form-title">Đăng nhập</h2>
                         <c:if test = "${checklogin == 1}">
                             <div class="fail">${message}</div>
                         </c:if>
                         <div class="form-group">
                             <label for="username"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                            <input type="text" name="username" value="${userC}" id="username" placeholder="Your Email" />
+                            <input type="text" name="username" value="${userC}" id="username" class="with" required="required" placeholder="Nhập email" />
                         </div>
                         <div class="form-group">
                             <label for="password"><i class="zmdi zmdi-lock"></i></label>
-                            <input type="password" name="password" value="${passC}" id="password" placeholder="Password"/>
+                            <input type="password" name="password" value="${passC}" id="password" class="with" required="required" placeholder="Nhập mật khẩu"/>
                         </div>
                         <div class="form-group">
-                            <input type="checkbox" name="remember-me" id="remember-me" class="agree-term"/>
-                            <label for="remember-me" class="label-agree-term"><span><span></span></span>Remember me</label>
+                            <input type="checkbox" name="remember-me" id="remember-me" class="left"/>
+                            <label for="remember-me"> Lưu tài khoản</label>
                         </div>
                         <div class="form-group form-button">
-                            <input type="submit" name="signin" id="signin" class="form-submit" value="Log in"/>
+                            <input type="submit" name="signin" id="signin" class="form-submit" value="Đăng nhập"/>
                         </div>
                     </form>
                     <div class="social-login">
-                        <span class="social-label">Or login with</span>
-                        <ul class="socials">
-                            <li><a href="#"><i
-                                    class="display-flex-center zmdi zmdi-facebook"></i></a></li>
-                            <li><a href="#"><i
-                                    class="display-flex-center zmdi zmdi-twitter"></i></a></li>
-                            <li><a href="#"><i
-                                    class="display-flex-center zmdi zmdi-google"></i></a></li>
-                        </ul>
+                        <div class= "socials">
+                            <a href="registration.jsp" class="signup-image-link">Quên mật khẩu?</a>
+                        </div>
                     </div>
                 </div>
             </div>

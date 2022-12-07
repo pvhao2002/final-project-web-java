@@ -11,6 +11,7 @@
         <class>com.uteshop.model.entity.OrderDetail</class>
         <class>com.uteshop.model.entity.User</class>
         <class>com.uteshop.model.entity.Role</class>
+        <class>com.uteshop.model.entity.Contact</class>
 
         <properties>
             <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />

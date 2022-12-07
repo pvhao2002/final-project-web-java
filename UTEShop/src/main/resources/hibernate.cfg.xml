@@ -27,6 +27,7 @@
         <mapping class="com.uteshop.model.entity.OrderDetail"/>
         <mapping class="com.uteshop.model.entity.User"/>
         <mapping class="com.uteshop.model.entity.Role"/>
+        <mapping class="com.uteshop.model.entity.Contact"/>
 
     </session-factory>
 </hibernate-configuration>

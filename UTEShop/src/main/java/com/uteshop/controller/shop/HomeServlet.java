@@ -34,6 +34,7 @@ public class HomeServlet extends HttpServlet {
         List<Brand> brands = brandDAO.getAll();
         List<Category> category = categoryDAO.getAll();
 
+
         String from ="2015-01-01";
         String to ="2018-01-01";
         Date date1 = null;
@@ -50,12 +51,14 @@ public class HomeServlet extends HttpServlet {
         }
 
         List<Product> product_discountList = productDAO.listDiscountProducts( date1, date2, 3000000, 8000000);
+        List<Product> product_trendList = productDAO.listTrendProducts(20000000, 25000000);
         List<Product> product_cheapList = productDAO.listCheapProducts();
         List<Product> product_newList = productDAO.listNewProducts();
         List<Product> product_oldList = productDAO.listOldProducts();
 
         request.setAttribute("data", category);
         request.setAttribute("brands", brands);
+        request.setAttribute("product_trendList", product_trendList);
         request.setAttribute("product_discountList", product_discountList);
         request.setAttribute("product_newList", product_newList);
         request.setAttribute("product_oldList", product_oldList);

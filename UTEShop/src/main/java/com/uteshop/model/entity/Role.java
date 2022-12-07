@@ -9,6 +9,11 @@ import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
 @Table(name = "roles")
+@NamedQueries({
+        @NamedQuery(name = "Role.findAll", query = "SELECT r FROM Role r"),
+        @NamedQuery(name = "Role.countAll", query = "SELECT COUNT(*) FROM Role r"),
+        @NamedQuery(name = "User.getByroleId", query = "SELECT r FROM Role r WHERE r.roleId = :roleId"),
+})
 public class Role implements java.io.Serializable {
 
     private static final long serialVersionUID = 1L;

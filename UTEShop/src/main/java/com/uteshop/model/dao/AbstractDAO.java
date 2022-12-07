@@ -2,6 +2,7 @@ package com.uteshop.model.dao;
 
 import com.uteshop.model.entity.Information;
 import com.uteshop.model.entity.Product;
+import com.uteshop.model.entity.Role;
 import com.uteshop.model.entity.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -69,6 +70,17 @@ public class AbstractDAO<T> {
     }
 
     @SuppressWarnings("unchecked")
+    public T find(Class<T> type, Object id) {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        T entity = entityManager.find(type, id);
+        if (entity != null) {
+            entityManager.refresh(entity);
+        }
+        entityManager.close();
+        return entity;
+    }
+
+    @SuppressWarnings("unchecked")
     public List<T> findWithNamedQuery(String queryName) {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         Query query = entityManager.createNamedQuery(queryName);
@@ -104,6 +116,17 @@ public class AbstractDAO<T> {
         Query query = entityManager.createNamedQuery(queryName);
         query.setParameter(paramName1, paramValue1);
         query.setParameter(paramName2, paramValue2);
+        List<T> result = query.getResultList();
+        entityManager.close();
+        return result;
+    }
+
+    public List<T> findWithNamedQuery(String queryName, String paramName1, Object paramValue1, String paramName2, Object paramValue2, int maxResult) {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        Query query = entityManager.createNamedQuery(queryName);
+        query.setParameter(paramName1, paramValue1);
+        query.setParameter(paramName2, paramValue2);
+        query.setMaxResults(maxResult);
         List<T> result = query.getResultList();
         entityManager.close();
         return result;
@@ -171,6 +194,15 @@ public class AbstractDAO<T> {
             query.setParameter(entry.getKey(), entry.getValue());
         }
         User result = (User) query.getResultList();
+        entityManager.close();
+        return result;
+    }
+
+    public Role findWithNamedQuery3(String queryName, String paramName, Object paramValue) {
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        Query query = entityManager.createNamedQuery(queryName);
+        query.setParameter(paramName, paramValue);
+        Role result = (Role) query.getSingleResult();
         entityManager.close();
         return result;
     }

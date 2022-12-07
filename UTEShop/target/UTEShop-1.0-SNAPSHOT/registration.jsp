@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Sign Up Form by Colorlib</title>
+    <title>UTEShop-Dang-ki</title>
 
     <!-- Font Icon -->
     <link rel="stylesheet"
@@ -24,53 +24,54 @@
         <div class="container">
             <div class="signup-content">
                 <div class="signup-form">
-                    <h2 class="form-title">Sign up</h2>
+                    <h2 class="form-title">Đăng kí</h2>
 
                     <form method="post" action="signup" class="register-form" id="register-form">
-                        <c:if test = "${check == 1 or check == 2 or check == 3 or check == 4}">
+                        <c:if test = "${check == 1 or check == 2 or check == 3}">
                             <div class="fail">${message}</div>
                         </c:if>
                         <c:if test = "${check == 0}">
                             <div class="success">${message}</div>
                         </c:if>
+
                         <div class="form-group">
                             <label for="name"><i class="zmdi zmdi-account material-icons-name"></i></label>
-                            <input type="text" name="name" id="name" placeholder="Your Name" />
+                            <input type="text" name="name" id="name" required="required" placeholder="Nhập họ tên" style="width:100%;"/>
                         </div>
                         <div class="form-group">
                             <label for="email"><i class="zmdi zmdi-email"></i></label>
-                            <input type="email" name="email" id="email" placeholder="Your Email" />
+                            <input type="email" name="email" id="email" required="required" placeholder="Nhập email" style="width:100%;"/>
                         </div>
                         <div class="form-group">
                             <label for="pass"><i class="zmdi zmdi-lock"></i></label>
-                            <input type="password" name="pass" id="pass" placeholder="Password" />
+                            <input type="password" name="pass" id="pass" required="required" placeholder="Nhập mật khẩu" style="width:100%;"/>
                         </div>
                         <div class="form-group">
                             <label for="re_pass"><i class="zmdi zmdi-lock-outline"></i></label>
-                            <input type="password" name="re_pass" id="re_pass" placeholder="Repeat your password" />
+                            <input type="password" name="re_pass" id="re_pass" required="required" placeholder="Nhập lại mật khẩu" style="width:100%;"/>
                         </div>
                         <div class="form-group">
                             <label for="phone"><i class="zmdi zmdi-lock-outline"></i></label>
-                            <input type="text" name="phone" id="phone" placeholder="Phone" />
+                            <input type="text" name="phone" id="phone" required="required" placeholder="Nhập số điện thoại" style="width:100%;"/>
                         </div>
                         <div class="form-group">
                             <label for="address"><i class="zmdi zmdi-lock-outline"></i></label>
-                            <input type="text" name="address" id="address" placeholder="Address" />
-                        </div>
-                        <div class="form-group">
-                            <input type="checkbox" name="agree-term" id="agree-term" class="agree-term"/>
-                            <label for="agree-term" class="label-agree-term"><span><span></span></span>I agree all statements in <a href="#" class="term-service">Terms of service</a></label>
+                            <input type="text" name="address" id="address" required="required" placeholder="Nhập địa chỉ" style="width:100%;"/>
                         </div>
                         <div class="form-group form-button">
-                            <input type="submit" name="signup" id="signup" class="form-submit" value="Sign up" />
+                            <input type="submit" name="signup" id="signup" class="form-submit" value="Đăng kí" />
                         </div>
+
                     </form>
+                    <c:if test = "${check == 0}">
+                        <a href="email-code" class="signup-image-link">Xác thực</a>
+                    </c:if>
                 </div>
                 <div class="signup-image">
                     <figure>
                         <img src="images/signup-image.jpg" alt="sing up image">
                     </figure>
-                    <a href="login.jsp" class="signup-image-link">I am already member</a>
+                    <a href="login" class="signup-image-link">Tôi đã có tài khoản</a>
                 </div>
             </div>
         </div>

@@ -9,7 +9,7 @@
     <meta name='copyright' content=''>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>UTEShop</title>
+    <title>UTEShop-Ho-so</title>
     <link rel="icon" type="image/png" href="images/favicon-32x32.png">
     <link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap"
           rel="stylesheet">
@@ -42,19 +42,19 @@
             <div class="col-12">
                 <div class = "block">
                     <c:if test = "${sessionScope.account != null}">
-                        <h6 align="center" class="form-title">Welcome, ${sessionScope.account.fullName}</h6>
+                        <h6 align="center" class="form-title">Xin chào, ${sessionScope.account.fullName}</h6>
                         <div class="con">
                             <div class="post">
                                 <div>Email :</div>
                                 <div>Họ tên :</div>
-                                <div>Mật khẩu :</div>
+                                <div>Vai trò :</div>
                                 <div>Số điện thoại :</div>
                                 <div>Địa chỉ :</div>
                             </div>
                             <div class="sidebar">
                                 <div> ${sessionScope.account.email}</div>
                                 <div> ${sessionScope.account.fullName}</div>
-                                <div> ${sessionScope.account.password}</div>
+                                <div> ${roleName}</div>
                                 <div> ${sessionScope.account.phoneNumber}</div>
                                 <div> ${sessionScope.account.address}</div>
                             </div>

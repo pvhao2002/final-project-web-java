@@ -9,7 +9,7 @@
     <meta name='copyright' content=''>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>UTEShop</title>
+    <title>UTEShop-Chinh-sua-ho-so</title>
     <link rel="icon" type="image/png" href="images/favicon-32x32.png">
     <link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap"
           rel="stylesheet">
@@ -41,47 +41,51 @@
         <div class="row">
             <div class="col-12">
                 <div class = "block">
+                    <c:if test = "${check == 1 or check == 2 or check == 3}">
+                        <div class="fail">${message}</div>
+                    </c:if>
+                    <c:if test = "${check == 0}">
+                        <div class="success">${message}</div>
+                    </c:if>
                     <c:if test = "${sessionScope.account != null}">
                         <h6 align="center" class="form-title">Welcome, ${sessionScope.account.fullName}</h6>
-                        <form method="post" action="signup" class="register-form" id="register-form">
-                            <div class="container">
-                            <div class="tab"><b>Email &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;: </b>
-                                <tr><input type="text" name="email" placeholder="Your Email"
-                                           value="${sessionScope.account.email}" required="required" maxlength="50"/></tr></div>
-<%--                            <tr>--%>
-<%--                                <td class="tab"><b>Email : </b> </td>--%>
-<%--                                <td> <input type="text" name="email" placeholder="Your Email"--%>
-<%--                                            value="${sessionScope.account.email}" required="required" maxlength="50"/> </td>--%>
-                            </tr>
-
-                            <div class="tab"><b>Họ tên &nbsp;     : </b>
-                                <tr><input type="text" name="name" placeholder="Your Name"
-                                           value="${sessionScope.account.fullName}" required="required" maxlength="50"/></tr></div>
-
-                            <div class="tab"><b>Mật khẩu cũ       : </b>
-                                <tr><input type="password" name="password" placeholder="Password Old"
-                                            required="required" maxlength="50"/></tr></div>
-
-                            <div class="tab"><b>Mật khẩu mới      : </b>
-                                <tr><input type="password" name="password" placeholder="Your password"
-                                           required="required" maxlength="50"/></tr></div>
-
-                            <div class="tab"><b>Xác nhận mật khẩu : </b>
-                                <tr><input type="password" name="password" placeholder="Confirm Password"
-                                           required="required" maxlength="50"/></tr></div>
-
-                            <div class="tab"><b>Số điện thoại     : </b>
-                                <tr><input type="text" name="phone" placeholder="Phone"
-                                           value="${sessionScope.account.phoneNumber}" required="required" maxlength="50"/></tr></div>
-
-                            <div class="tab"><b>Địa chỉ           : </b>
-                                <tr><input type="text" name="address" placeholder="Address"
-                                           value="${sessionScope.account.address}" required="required" maxlength="50"/></tr></div>
-                            </div>
-<%--                            <input type="submit" <p colspan="2" align="center" class="editprofile"><a href="#">Lưu</a></p>/>--%>
-                            <input type="submit" name="submit" id="submit" class="submitprofile" value="Lưu" />
-                        </form>
-                        <a class="back" href="customer">Back</a>
+                        <div class="container">
+                            <form method="post" action="edit-customer" class="register-form" id="register-form">
+                                <div class="post">
+                                    <div class="tab">Email :</div>
+                                    <div class="tab">Họ tên :</div>
+                                    <div class="tab">Mật khẩu cũ :</div>
+                                    <div class="tab">Mật khẩu mới :</div>
+                                    <div class="tab">Xác nhận mật khẩu :</div>
+                                    <div class="tab">Số điện thoại :</div>
+                                    <div class="tab">Địa chỉ :</div>
+                                </div>
+                                <div class="sidebar">
+                                    <div class="tab1"><input type="text" name="email" readonly="True"
+                                           value="${sessionScope.account.email}" required="required" maxlength="40"/></div>
+                                    <c:if test = "${sessionScope.account.roleid.roleId == 0}">
+                                        <div class="tab1"><input type="text" name="name" readonly="True"
+                                                value="${sessionScope.account.fullName}" required="required" maxlength="40"/></div>
+                                    </c:if>
+                                    <c:if test = "${sessionScope.account.roleid.roleId == 1}">
+                                        <div class="tab1"><input type="text" name="name"
+                                                value="${sessionScope.account.fullName}" required="required" maxlength="40"/></div>
+                                    </c:if>
+                                    <div class="tab1"><input type="password" name="passwordOld"
+                                           required="required" maxlength="40"/></div>
+                                    <div class="tab1"><input type="password" name="passwordNew"
+                                           required="required" maxlength="40"/></div>
+                                    <div class="tab1"><input type="password" name="passwordComfirm"
+                                           required="required" maxlength="40"/></div>
+                                    <div class="tab1"><input type="text" name="phone"
+                                           value="${sessionScope.account.phoneNumber}" required="required" maxlength="40"/></div>
+                                    <div class="tab1"><input type="text" name="address"
+                                           value="${sessionScope.account.address}" required="required" maxlength="40"/></div>
+                                </div>
+                                <input type="submit" name="submit" id="submit" class="submitprofile" value="Lưu" />
+                            </form>
+                        </div>
+                        <a class="back" href="customer">Trở lại</a>
                     </c:if>
                 </div>
             </div>

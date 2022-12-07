@@ -1,7 +1,11 @@
 package com.uteshop.controller.shop;
 
+import com.uteshop.model.dao.RoleDAO;
 import com.uteshop.model.dao.UserDAO;
+import com.uteshop.model.entity.Role;
 import com.uteshop.model.entity.User;
+import com.uteshop.util.CookieUtil;
+import com.uteshop.util.SesstionUtil;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -10,17 +14,15 @@ import java.io.IOException;
 
 @WebServlet(name = "LoginServlet", value = "/login")
 public class LoginServlet extends HttpServlet {
+    public static String RoleName;
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        Cookie arr[] = request.getCookies();
-        for(Cookie o : arr) {
-            if(o.getName().equals("user")){
-                request.setAttribute("userC",o.getValue());
-            }
-            if(o.getName().equals("pass")){
-                request.setAttribute("passC",o.getValue());
-            }
-        }
+        Cookie[] cookies = request.getCookies();
+        String userC = CookieUtil.getCookieValue(cookies, "user");
+        String passC = CookieUtil.getCookieValue(cookies, "pass");
+        request.setAttribute("userC",userC);
+        request.setAttribute("passC",passC);
+
         doPost(request, response);
     }
 
@@ -33,38 +35,43 @@ public class LoginServlet extends HttpServlet {
         String checklogin = null;
         UserDAO userDAO = new UserDAO();
         User user = userDAO.checkEmailAndPassword(username, password);
-        if(user != null) {
-            HttpSession session = request.getSession();
-            session.setAttribute("account", user);
-            session.setMaxInactiveInterval(-1); //lưu sesion đến khi đóng trình duyệt
+        try {
+            if (user != null) {
+                RoleDAO roleDAO = new RoleDAO();
+                Role role = roleDAO.getByroleId((user.getRoleid().getRoleId()));
+                if (role != null) {
+                    RoleName = role.getRoleName();
+                }
 
-            Cookie u = new Cookie("user", username);
-            Cookie p = new Cookie("pass", password);
-            u.setMaxAge(3600);
-            if(remember != null) {
-                p.setMaxAge(3600);
-            }else{
-                p.setMaxAge(0);
+                SesstionUtil.getInstance().putValue(request,"account", user);
+                SesstionUtil.getInstance().settimeValue(request);
+
+                Cookie u = new Cookie("user", username);
+                Cookie p = new Cookie("pass", password);
+                u.setMaxAge(60*60);
+                if (remember != null) {
+                    p.setMaxAge(60*60);
+                } else {
+                    p.setMaxAge(0);
+                }
+                response.addCookie(u);
+                response.addCookie(p);
+
+                response.sendRedirect("home");
+            } else if (username != null || password != null) {
+                checklogin = "1";
+                request.setAttribute("message", "Đăng nhập thất bại!");
+                request.setAttribute("checklogin", checklogin);
+
+                System.out.println(username);
+
+                request.getRequestDispatcher(url).forward(request, response);
+            } else {
+                request.setAttribute("checklogin", checklogin);
+                request.getRequestDispatcher(url).forward(request, response);
             }
-            response.addCookie(u);
-            response.addCookie(p);
-
-            response.sendRedirect("home");
-        }else if(username != null || password != null){
-            checklogin = "1";
-            request.setAttribute("message", "Login failed!");
-            request.setAttribute("checklogin", checklogin);
-
-            System.out.println(username);
-
-            getServletContext()
-                    .getRequestDispatcher(url)
-                    .forward(request, response);
-        }else {
-            request.setAttribute("checklogin", checklogin);
-            getServletContext()
-                    .getRequestDispatcher(url)
-                    .forward(request, response);
+        }catch(Exception e){
+            e.printStackTrace();
         }
     }
 }

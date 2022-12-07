@@ -57,164 +57,202 @@ public class ShopServlet extends HttpServlet {
         List<Category> category = categoryDAO.getAll();
         boolean[] chid = new boolean[brand.size()+1];
 
-        String [] cidd_raw = request.getParameterValues("cidd"); //thương hiệu
-        String [] price = request.getParameterValues("price");
-
         String sortprice1 = request.getParameter("sortprice1");
         String sortprice2 = request.getParameter("sortprice2");
-        if(sortprice1 != null){
-            if(sortprice1.equals("1")) {
-                products = productsDAO.sortByPriceDesc((indexPage-1)*12);
-                numberPage = productsDAO.getNumberPage();
+        try {
+            if (sortprice1 != null) {
+                if (sortprice1.equals("1")) {
+                    products = productsDAO.sortByPriceDesc((indexPage - 1) * 12);
+                    numberPage = productsDAO.getNumberPage();
+                }
             }
-        }
-        if(sortprice2 != null){
-            if(sortprice2.equals("2")) {
-                products = productsDAO.sortByPriceAsc((indexPage-1)*12);
-                numberPage = productsDAO.getNumberPage();
+            if (sortprice2 != null) {
+                if (sortprice2.equals("2")) {
+                    products = productsDAO.sortByPriceAsc((indexPage - 1) * 12);
+                    numberPage = productsDAO.getNumberPage();
+                }
             }
+        }catch (Exception e){
+            e.printStackTrace();
         }
 
         String sortname1 = request.getParameter("sortname1");
         String sortname2 = request.getParameter("sortname2");
-        if(sortname1 != null){
-            if(sortname1.equals("1")) {
-                products = productsDAO.sortByNameDesc((indexPage-1)*12);
-                numberPage = productsDAO.getNumberPage();
+        try {
+            if (sortname1 != null) {
+                if (sortname1.equals("1")) {
+                    products = productsDAO.sortByNameDesc((indexPage - 1) * 12);
+                    numberPage = productsDAO.getNumberPage();
+                }
             }
-        }
-        if(sortname2 != null){
-            if(sortname2.equals("2")) {
-                products = productsDAO.sortByNameAsc((indexPage-1)*12);
-                numberPage = productsDAO.getNumberPage();
+            if (sortname2 != null) {
+                if (sortname2.equals("2")) {
+                    products = productsDAO.sortByNameAsc((indexPage - 1) * 12);
+                    numberPage = productsDAO.getNumberPage();
+                }
             }
+        }catch(Exception e){
+            e.printStackTrace();
         }
 
-        String cid_raw = request.getParameter("cid");
+        String cid_raw = request.getParameter("cid"); // category ở trang home
         int cid=0;
-        if(cid_raw != null){
-            cid=Integer.parseInt(cid_raw);
-            products = productsDAO.listByCategory(cid);
+        try {
+            if (cid_raw != null) {
+                cid = Integer.parseInt(cid_raw);
+                products = productsDAO.listByCategory(cid);
+            }
+        }catch(Exception e){
+            e.printStackTrace();
         }
 
-        String brandId_raw = request.getParameter("brandId");
+        String brandId_raw = request.getParameter("brandId"); // brand ở trang home
         int brandId=0;
-        if(brandId_raw != null){
-            brandId=Integer.parseInt(brandId_raw);
-            products = productsDAO.listByBrand(brandId);
+        try {
+            if (brandId_raw != null) {
+                brandId = Integer.parseInt(brandId_raw);
+                products = productsDAO.listByBrand(brandId);
 
+            }else{
+                chid[0]=true;
+            }
+        }catch(Exception e){
+            e.printStackTrace();
         }
 
         String keyheader = request.getParameter("search");
-        if(keyheader!=null){
-            products = productsDAO.searchHeader(keyheader);
+        try {
+            if (keyheader != null) {
+                products = productsDAO.searchHeader(keyheader);
+            }
+        }catch(Exception e){
+            e.printStackTrace();
         }
 
         String key = request.getParameter("key");
-        if(key!=null){
-            products = productsDAO.search(key);
+        try {
+            if (key != null) {
+                products = productsDAO.search(key);
+            }
+        }catch(Exception e){
+            e.printStackTrace();
         }
 
-        if(brandId_raw==null){
-            chid[0]=true;
-        }
-
+        String [] cidd_raw = request.getParameterValues("cidd"); //thương hiệu
         int[] cidd = null;
         int check = 0;
-        if(cidd_raw != null){
-            cidd = new int[cidd_raw.length];
-            for(int i=0; i<cidd.length;i++){
-                cidd[i] = Integer.parseInt(cidd_raw[i]);
-                if(cidd[i] == 0) {
-                    chid[0] = true;
-                    products = productsDAO.getAllProduct((indexPage-1)*12);
-                    numberPage = productsDAO.getNumberPage();
-                    check = 1;
-                    break;
+        try{
+            if(cidd_raw != null){
+                cidd = new int[cidd_raw.length];
+                for(int i=0; i<cidd.length;i++){
+                    cidd[i] = Integer.parseInt(cidd_raw[i]);
+                    if(cidd[i] == 0) { // tít lại all thì sẽ getAll lại
+                        chid[0] = true;
+                        products = productsDAO.getAllProduct((indexPage-1)*12);
+                        numberPage = productsDAO.getNumberPage();
+                        check = 1;
+                        break;
+                    }
+                }
+                if(check == 0) {
+                    products = productsDAO.searchByCheck(cidd); // lấy từng sp khi check từng brand
                 }
             }
-            if(check == 0) {
-                products = productsDAO.searchByCheck(cidd);
-            }
+        }catch(Exception e){
+            e.printStackTrace();
         }
-        if((cidd_raw != null) && (cidd[0] != 0)){
-            chid[0] = false;
-            for(int i = 1; i <chid.length; i++){
-                if(ischeck(brand.get(i-1).getBrandId(), cidd)){
-                    chid[i] = true;
-                }else{
-                    chid[i] = false;
+
+        // tít checkbox được chọn
+        try {
+            if ((cidd_raw != null) && (cidd[0] != 0)) {
+                chid[0] = false;
+                for (int i = 1; i < chid.length; i++) {
+                    if (ischeck(brand.get(i - 1).getBrandId(), cidd)) {
+                        chid[i] = true;
+                    } else {
+                        chid[i] = false;
+                    }
                 }
             }
+        }catch(Exception e){
+            e.printStackTrace();
         }
 
-        if(price != null){
-            long from = 0, to = 0;
-            for(int i=0; i<price.length; i++){
-                List<Product> temp = new ArrayList<>();
-                if(price[i].equals("0")){
-                    pb[0] = true;
-                    products = productsDAO.getAllProduct((indexPage-1)*12);
-                    numberPage = productsDAO.getNumberPage();
-                    break;
-                }else{
-                    if(price[i].equals("1")){
-                        from = 0;
-                        to = 2000000;
-                        temp = productsDAO.getProductsByPrice(from, to);
-                        products.addAll(temp);
-                        pb[1] = true;
+        String [] price = request.getParameterValues("price");
+        try {
+            if (price != null) {
+                long from = 0, to = 0;
+                for (int i = 0; i < price.length; i++) {
+                    List<Product> temp = new ArrayList<>();
+                    if (price[i].equals("0")) {
+                        pb[0] = true;
+                        products = productsDAO.getAllProduct((indexPage - 1) * 12);
+                        numberPage = productsDAO.getNumberPage();
+                        break;
+                    } else {
+                        if (price[i].equals("1")) {
+                            from = 0;
+                            to = 2000000;
+                            temp = productsDAO.getProductsByPrice(from, to);
+                            products.addAll(temp);
+                            pb[1] = true;
 
-                        for (Product product : products) {
-                            System.out.println(product.getProductName() + " - " + product.getProductName());
+                            for (Product product : products) {
+                                System.out.println(product.getProductName() + " - " + product.getProductName());
+                            }
+                        }
+                        if (price[i].equals("2")) {
+                            from = 2000000;
+                            to = 4000000;
+                            temp = productsDAO.getProductsByPrice(from, to);
+                            products.addAll(temp);
+                            pb[2] = true;
+                        }
+                        if (price[i].equals("3")) {
+                            from = 4000000;
+                            to = 7000000;
+                            temp = productsDAO.getProductsByPrice(from, to);
+                            products.addAll(temp);
+                            pb[3] = true;
+                        }
+                        if (price[i].equals("4")) {
+                            from = 7000000;
+                            to = 13000000;
+                            temp = productsDAO.getProductsByPrice(from, to);
+                            products.addAll(temp);
+                            pb[4] = true;
+                        }
+                        if (price[i].equals("5")) {
+                            from = 13000000;
+                            to = 20000000;
+                            temp = productsDAO.getProductsByPrice(from, to);
+                            products.addAll(temp);
+                            pb[5] = true;
+                        }
+                        if (price[i].equals("6")) {
+                            from = 20000000;
+                            to = 50000000;
+                            temp = productsDAO.getProductsByPrice(from, to);
+                            products.addAll(temp);
+                            pb[6] = true;
                         }
                     }
-                    if(price[i].equals("2")){
-                        from = 2000000;
-                        to = 4000000;
-                        temp = productsDAO.getProductsByPrice(from, to);
-                        products.addAll(temp);
-                        pb[2] = true;
-                    }
-                    if(price[i].equals("3")){
-                        from = 4000000;
-                        to = 7000000;
-                        temp = productsDAO.getProductsByPrice(from, to);
-                        products.addAll(temp);
-                        pb[3] = true;
-                    }
-                    if(price[i].equals("4")){
-                        from = 7000000;
-                        to = 13000000;
-                        temp = productsDAO.getProductsByPrice(from, to);
-                        products.addAll(temp);
-                        pb[4] = true;
-                    }
-                    if(price[i].equals("5")){
-                        from = 13000000;
-                        to = 20000000;
-                        temp = productsDAO.getProductsByPrice(from, to);
-                        products.addAll(temp);
-                        pb[5] = true;
-                    }
-                    if(price[i].equals("6")){
-                        from = 20000000;
-                        to = 50000000;
-                        temp = productsDAO.getProductsByPrice(from, to);
-                        products.addAll(temp);
-                        pb[6] = true;
-                    }
                 }
+            }else{
+                pb[0] = true;
             }
-        }
-        if(price == null){
-            pb[0] = true;
+        }catch(Exception e){
+            e.printStackTrace();
         }
 
-        if((price == null && cidd_raw == null && cid_raw == null && key == null && keyheader==null && brandId_raw == null
-                && sortprice1 == null && sortprice2 == null && sortname1 == null && sortname2 == null)){
-            products = productsDAO.getAllProduct((indexPage-1)*12);
-            numberPage = productsDAO.getNumberPage();
+        try {
+            if ((price == null && cidd_raw == null && cid_raw == null && key == null && keyheader == null && brandId_raw == null
+                    && sortprice1 == null && sortprice2 == null && sortname1 == null && sortname2 == null)) {
+                products = productsDAO.getAllProduct((indexPage - 1) * 12);
+                numberPage = productsDAO.getNumberPage();
+            }
+        }catch(Exception e){
+            e.printStackTrace();
         }
 
         request.setAttribute("databrand", brand);

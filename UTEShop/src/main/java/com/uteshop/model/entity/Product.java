@@ -13,6 +13,7 @@ import java.util.*;
         @NamedQuery(name = "Product.countAll", query = "SELECT COUNT(*) FROM Product p"),
         @NamedQuery(name = "Product.findByCategory", query = "SELECT p FROM Product p WHERE p.categoryId.categoryId = :categoryId"),
         @NamedQuery(name = "Product.findByBrand", query = "SELECT p FROM Product p WHERE p.brandId.brandId = :brandId"),
+        @NamedQuery(name = "Product.listTrendProducts", query = "SELECT p FROM Product p WHERE p.price between :from1 and :to1 order by p.releaseDate DESC"),
         @NamedQuery(name = "Product.listNewProducts", query = "SELECT p FROM Product p ORDER BY p.releaseDate DESC"),
         @NamedQuery(name = "Product.listOldProducts", query = "SELECT p FROM Product p ORDER BY p.releaseDate"),
         @NamedQuery(name = "Product.listDiscountProducts", query = "SELECT p FROM Product p WHERE p.releaseDate between :from1 and :to1 and p.price between :from2 and :to2"),

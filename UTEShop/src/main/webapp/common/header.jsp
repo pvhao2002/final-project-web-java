@@ -22,7 +22,7 @@
                         <ul class="list-main">
                             <li><i class="fas fa-info-circle"></i> <a href="introduce.jsp">Giới thiệu</a></li>
                             <li><i class="fas fa-handshake"></i> <a href="recruit.jsp">Tuyển dụng</a></li>
-                            <c:if test = "${sessionScope.account.roleid.roleId == 1}">
+                            <c:if test = "${sessionScope.account.roleid.roleId == 0}">
                                 <li><i class="ti-user"></i> <a href="#">Quản trị</a></li>
                             </c:if>
                             <c:if test = "${sessionScope.account != null}">
@@ -108,16 +108,16 @@
                                 <div class="navbar-collapse">
                                     <div class="nav-inner">
                                         <ul class="nav main-menu menu navbar-nav">
-                                            <li><a href="home">Home</a></li>
-                                            <li><a href="shop">Shop</a></li>
-                                            <li><a href="shopDetail">Shop Detail</a></li>
-                                            <li><a href="#">Pages<i class="ti-angle-down"></i></a>
+                                            <li><a href="home">Trang chủ</a></li>
+                                            <li><a href="shop">Cửa hàng</a></li>
+                                            <li><a href="shopDetail">Chi tiết sản phẩm</a></li>
+                                            <li><a href="#">Trang<i class="ti-angle-down"></i></a>
                                                 <ul class="dropdown">
-                                                    <li><a href="cart.html">Cart</a></li>
-                                                    <li><a href="checkout.html">Checkout</a></li>
+                                                    <li><a href="cart.html">Giỏ hàng</a></li>
+                                                    <li><a href="checkout.html">Thanh toán</a></li>
                                                 </ul>
                                             </li>
-                                            <li><a href="contact">Contact Us</a></li>
+                                            <li><a href="contact">Liên hệ</a></li>
                                         </ul>
                                     </div>
                                 </div>

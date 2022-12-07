@@ -35,6 +35,10 @@ public class ProductDAO extends AbstractDAO<Product> implements GenericDAO<Produ
         return super.findWithNamedQuery("Product.getAll", indexPage, 12);
     }
 
+    public List<Product> listTrendProducts(long from1, long to1) {
+        return super.findWithNamedQuery("Product.listTrendProducts", "from1", from1, "to1", to1, 4);
+    }
+
     public List<Product> listCheapProducts() {
         return super.findWithNamedQuery("Product.listCheapProducts", 3);
     }

@@ -9,7 +9,7 @@
     <meta name='copyright' content=''>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>UTEShop</title>
+    <title>UTEShop-Cua-hang</title>
     <link rel="icon" type="image/png" href="images/favicon-32x32.png">
     <link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap"
             rel="stylesheet">
@@ -43,8 +43,8 @@
             <div class="col-12">
                 <div class="bread-inner">
                     <ul class="bread-list">
-                        <li><a href="home">Home<i class="ti-arrow-right"></i></a></li>
-                        <li class="active">Shop</li>
+                        <li><a href="home">Trang chủ<i class="ti-arrow-right"></i></a></li>
+                        <li class="active">Cửa hàng</li>
                     </ul>
                 </div>
             </div>
@@ -62,7 +62,7 @@
                 <div class="ct" >
                     <form id="f1" action="shop">
                         <label><input type="checkbox" id="c0" name="cidd" ${chid[0]?"checked":""}
-                               value="0" onclick="setCheck(this)"/>All
+                               value="0" onclick="setCheck(this)"/>Tất cả
                         </label>
                         <c:forEach begin="0" end="${databrand.size()-1}" var="o">
                         <label><input type="checkbox" id="c1" name="cidd" ${chid[o+1]?"checked":""} ${databrand.get(o).getBrandId() == brandId?"checked":""}
@@ -80,7 +80,7 @@
                 <div class="ct">
                     <form id="f2" action="shop">
                         <label><input type="checkbox" id="g0" name="price" ${pb[0]?"checked":""}
-                               value="0" onclick="setCheck1(this)"/>All
+                               value="0" onclick="setCheck1(this)"/>Tất cả
                         </label>
                         <c:forEach begin="0" end="${5}" var="o">
                         <label><input type="checkbox" id="g1" name="price" ${pb[o+1]?"checked":""}
