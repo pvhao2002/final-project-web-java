@@ -1,4 +1,4 @@
-.shop .middle-inner .right-bar. li .dropdown{
+.shop .middle-inner .right-bar li .dropdown{
     background: #fff;
     width: 220px;
     position: absolute;
@@ -19,14 +19,14 @@
     margin: 0;
 }
 
-.shop .middle-inner .right-bar. li .dropdown li a{
+.shop .middle-inner .right-bar li .dropdown li a{
     font-weight: 400;
     font-size: 18px;
     color: #F7941D;
     padding: 8px 15px;
     background:#fff;
 }
-.shop .right-bar. li .dropdown li a:hover{
+.shop .right-bar li .dropdown li a:hover{
     background:#fff;
 }
 .contact-us .contact_content h4 {

@@ -8,8 +8,28 @@ import javax.persistence.Persistence;
 import javax.persistence.Query;
 import java.util.Date;
 import java.util.List;
+import org.hibernate.Session;
+import org.hibernate.Transaction;
+import util.HibernateUtil;
 
 public class ProductDAO extends AbstractDAO<Product> implements GenericDAO<Product> {
+    
+    public Product detailProductById(Integer productId) {
+        Transaction transaction = null;
+	Product product = null;
+	try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            transaction = session.beginTransaction();
+            product = session.get(Product.class, productId);
+            transaction.commit();
+	} catch (Exception e) {
+            if (transaction != null) {
+		transaction.rollback();
+            }
+            e.printStackTrace();
+	}
+        
+	return product;
+    }
 
     @Override
     public Product create(Product product) {return super.create(product);}
@@ -105,5 +125,9 @@ public class ProductDAO extends AbstractDAO<Product> implements GenericDAO<Produ
         List<Product> result = query.getResultList();
         entityManager.close();
         return result;
+    }
+
+    Product get(Integer productId) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

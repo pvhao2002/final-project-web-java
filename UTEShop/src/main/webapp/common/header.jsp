@@ -77,7 +77,7 @@
                                 <p class="single-content">Tài Khoản</p>
                             </a>
                         </c:if>
-                        <a href="#" class="sinlge-bar shopping flex">
+                        <a href="cart" class="sinlge-bar shopping flex">
                             <i class="fa fa-shopping-cart" style="font-size:24px;color:#f6931d;"> <span class="total-count">2</span></i>
                             <p class="single-content">Giỏ Hàng</p>
                         </a>

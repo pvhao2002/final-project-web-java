@@ -1,0 +1,4 @@
+com\uteshop\model\dao\UserDAOTest.class
+com\uteshop\model\dao\CategoryDAOTest.class
+com\uteshop\model\dao\InformationDAOTest.class
+com\uteshop\model\dao\ProductDAOTest.class

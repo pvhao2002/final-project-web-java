@@ -22,7 +22,7 @@ import java.util.Set;
 
 public class AbstractDAO<T> {
     private static final EntityManagerFactory entityManagerFactory;
-//    StandardServiceRegistry ssr =new StandardServiceRegistryBuilder().configure("hibernate.cfg.xml").build();
+    StandardServiceRegistry ssr =new StandardServiceRegistryBuilder().configure("hibernate.cfg.xml").build();
 
     static {
         entityManagerFactory = Persistence.createEntityManagerFactory("phoneWeb");
@@ -32,13 +32,13 @@ public class AbstractDAO<T> {
     }
 
     public T create(T entity) {
-//        Metadata meta = new MetadataSources(ssr).getMetadataBuilder().build();
-//        SessionFactory factory = meta.getSessionFactoryBuilder().build();
-//        Session session = factory.openSession();
-//        Transaction transaction = session.beginTransaction();
-//        session.persist(entity);
-//        transaction.commit();
-//        session.close();
+        Metadata meta = new MetadataSources(ssr).getMetadataBuilder().build();
+        SessionFactory factory = meta.getSessionFactoryBuilder().build();
+        Session session = factory.openSession();
+        Transaction transaction = session.beginTransaction();
+        session.persist(entity);
+        transaction.commit();
+        session.close();
 
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         entityManager.getTransaction().begin();
@@ -188,4 +188,5 @@ public class AbstractDAO<T> {
             entityManagerFactory.close();
         }
     }
+    
 }

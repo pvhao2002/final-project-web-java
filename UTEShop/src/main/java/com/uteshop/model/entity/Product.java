@@ -84,6 +84,10 @@ public class Product implements java.io.Serializable {
         this.orderDetailId = orderDetailId;
     }
 
+    public Product(int productId) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
+
     public Integer getProductId() {
         return productId;
     }

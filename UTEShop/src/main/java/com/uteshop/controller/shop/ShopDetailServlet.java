@@ -18,6 +18,7 @@ import java.util.List;
 
 @WebServlet(name = "ShopDetailServlet", value = "/shopDetail")
 public class ShopDetailServlet extends HttpServlet {
+    public static Product p;
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request, response);
@@ -28,7 +29,6 @@ public class ShopDetailServlet extends HttpServlet {
         String url ="/shopDetail.jsp";
         InformationDAO information = new InformationDAO();
 
-        Product p = null;
         String id = request.getParameter("pid");
         if(id == null) {
             p = null;

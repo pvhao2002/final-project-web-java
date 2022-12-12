@@ -90,7 +90,7 @@
                                 </div>
                             </div>
                             <div class="d-flex align-items-center mb-4 pt-2">
-                                <div class="input-group quantity mr-3" style="width: 130px;">
+<!--                                <div class="input-group quantity mr-3" style="width: 130px;">
                                     <div class="input-group-btn">
                                         <button class="btn btn-primary btn-minus">
                                             <i class="fa fa-minus" style="color: #fff"></i>
@@ -103,7 +103,13 @@
                                         </button>
                                     </div>
                                 </div>
-                                <button class="btn btn-primary px-3"><i class="fa fa-shopping-cart mr-1" style="color: #fff"></i> Add To Cart</button>
+                                <button class="btn btn-primary px-3" href="/add_to_cart"><i class="fa fa-shopping-cart mr-1" style="color: #fff"></i> Add To Cart</button>-->
+                                <form action="AddCart" method="post">
+                                    
+                                    <input type="hidden" name="productId" value=${product.productId}>
+                                    <!--<input type="submit" class="btn btn-primary px-3 "  value="Add cart" >-->
+                                    <button class="btn btn-primary px-3" ><i class="fa fa-shopping-cart mr-1" style="color: #fff"></i> Add To Cart</button>
+                                </form>
                             </div>
                         </div>
                         <div class="info_product">
@@ -125,7 +131,7 @@
                     <h4 class="des">Product Description</h4>
                     <div class="padding">${product.description}</div>
 
-                    <!-- Start Product discount-->
+                    <!-- Start Product discount
                     <div class="product-area most-popular">
                         <div class="section-title">
                             <h2>Bạn có thể thích</h2>
@@ -158,7 +164,7 @@
                     <!-- End Product discount-->
                 </c:if>
 
-                <c:if test = "${product == nulll}">
+                <c:if test = "${product == null}">
                     <div id="productNotFound" style="min-height: 300px;text-align: center;margin: 50px;display: block;">
                         <h1 style="color: red; margin-bottom: 10px;">Không tìm thấy sản phẩm</h1>
                         <a class="comeback" href="home" style="text-decoration: underline;">Quay lại trang chủ</a>

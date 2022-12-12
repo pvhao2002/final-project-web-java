@@ -18,7 +18,6 @@ public class UserDAO extends AbstractDAO<User> implements GenericDAO<User> {
         super.delete(User.class, userId);
     }
 
-
     @Override
     public int count() {
         return super.countWithNamedQuery("User.countAll");
