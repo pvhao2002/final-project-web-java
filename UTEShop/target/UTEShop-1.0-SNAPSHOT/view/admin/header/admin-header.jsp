@@ -1,4 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -23,7 +25,7 @@
     <body class="sb-nav-fixed">
 	<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
 	    <!-- Navbar Brand-->
-	    <a class="navbar-brand ps-3" href="${pageContext.request.contextPath}/view/admin/">UTE SHOP</a>
+	    <a class="navbar-brand ps-3" href="${pageContext.request.contextPath}/admin-home">UTE SHOP</a>
 	    <!-- Sidebar Toggle-->
 	    <button
 		class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0"
@@ -53,7 +55,7 @@
 			class="dropdown-menu dropdown-menu-end"
 			aria-labelledby="navbarDropdown"
 			>
-			<li><a class="dropdown-item" href="#!">Logout</a></li>
+			<li><a class="dropdown-item" href="home">Logout</a></li>
 		    </ul>
 		</li>
 	    </ul>
@@ -64,7 +66,7 @@
 		    <div class="sb-sidenav-menu">
 			<div class="nav">
 			    <div class="sb-sidenav-menu-heading">core</div>
-			    <a class="nav-link" href="${pageContext.request.contextPath}/">
+			    <a class="nav-link" href="${pageContext.request.contextPath}/admin-home">
 				<div class="sb-nav-link-icon">
 				    <i class="fas fa-tachometer-alt"></i>
 				</div>

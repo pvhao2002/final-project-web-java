@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -66,7 +67,11 @@
                             <img src="${product.image}" onclick="opencertain()">
                         </div>
                         <div class="price_sale">
-                            <div class="area_price"><strong>${product.price} VNĐ</strong></div>
+                            <div class="area_price"><strong>
+                                <c:set var="p" value="${product.price}"/>
+                                <fmt:setLocale value="vi_VN"/>
+                                <fmt:formatNumber value="${p}" type="currency" maxFractionDigits="0"/>
+                            </strong></div>
                             <div class="area_promo">
                                 <div class="cont">Khi đến với <a href="home">UTEShop</a></div>
                                 <div class="promo">
@@ -201,7 +206,13 @@
                                     <div class="product-content">
                                         <h3><a href="shopDetail?pid=${o.infoId.infoId}">${o.productName}</a></h3>
                                         <div class="product-price">
-                                            <p class="vnd"><span>${o.price} </span> VNĐ</p>
+                                            <p class="vnd">
+                                                <span>
+                                                    <c:set var="p" value="${o.price}"/>
+                                                    <fmt:setLocale value="vi_VN"/>
+                                                    <fmt:formatNumber value="${p}" type="currency" maxFractionDigits="0"/>
+                                                </span>
+                                            </p>
                                         </div>
                                     </div>
                                 </div>

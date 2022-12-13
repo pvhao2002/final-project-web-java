@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html>
 <html lang="zxx">
 <head>
@@ -106,7 +107,13 @@
                                                 <div class="product-content">
                                                     <h3><a href="shopDetail?pid=${o.infoId.infoId}">${o.productName}</a></h3>
                                                     <div class="product-price">
-                                                        <p class="vnd"><span>${o.price} </span> VNĐ</p>
+                                                        <p class="vnd">
+                                                            <span>
+                                                                <c:set var="p" value="${o.price}"/>
+                                                                <fmt:setLocale value="vi_VN"/>
+                                                                <fmt:formatNumber value="${p}" type="currency" maxFractionDigits="0"/>
+                                                            </span>
+                                                        </p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -150,8 +157,18 @@
                             <div class="product-content">
                                 <h3><a href="shopDetail?pid=${o.infoId.infoId}">${o.productName}</a></h3>
                                 <div class="product-price">
-                                    <span class="old">${o.price*1.1} VNĐ</span>
-                                    <p class="vnd"><span>${o.price} </span> VNĐ</p>
+                                    <span class="old">
+                                        <c:set var="pz" value="${o.price*1.1}"/>
+                                        <fmt:setLocale value="vi_VN"/>
+                                        <fmt:formatNumber value="${pz}" type="currency" maxFractionDigits="0"/>
+                                    </span>
+                                    <p class="vnd">
+                                        <span>
+                                            <c:set var="p" value="${o.price}"/>
+                                            <fmt:setLocale value="vi_VN"/>
+                                            <fmt:formatNumber value="${p}" type="currency" maxFractionDigits="0"/>
+                                        </span>
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -189,7 +206,11 @@
                             <div class="col-lg-6 col-md-6 col-12 no-padding">
                                 <div class="content">
                                     <h4 class="title"><a href="shopDetail?pid=${o.infoId.infoId}">${o.productName}</a></h4>
-                                    <p class="price with-discount">${o.price} VNĐ</p>
+                                    <p class="price with-discount">
+                                        <c:set var="p" value="${o.price}"/>
+                                        <fmt:setLocale value="vi_VN"/>
+                                        <fmt:formatNumber value="${p}" type="currency" maxFractionDigits="0"/>
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -218,7 +239,11 @@
                             <div class="col-lg-6 col-md-6 col-12 no-padding">
                                 <div class="content">
                                     <h5 class="title"><a href="shopDetail?pid=${o.infoId.infoId}">${o.productName}</a></h5>
-                                    <p class="price with-discount">${o.price} VNĐ</p>
+                                    <p class="price with-discount">
+                                        <c:set var="p" value="${o.price}"/>
+                                        <fmt:setLocale value="vi_VN"/>
+                                        <fmt:formatNumber value="${p}" type="currency" maxFractionDigits="0"/>
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -247,7 +272,11 @@
                             <div class="col-lg-6 col-md-6 col-12 no-padding">
                                 <div class="content">
                                     <h5 class="title"><a href="shopDetail?pid=${o.infoId.infoId}">${o.productName}</a></h5>
-                                    <p class="price with-discount">${o.price} VNĐ</p>
+                                    <p class="price with-discount">
+                                        <c:set var="p" value="${o.price}"/>
+                                        <fmt:setLocale value="vi_VN"/>
+                                        <fmt:formatNumber value="${p}" type="currency" maxFractionDigits="0"/>
+                                    </p>
                                 </div>
                             </div>
                         </div>

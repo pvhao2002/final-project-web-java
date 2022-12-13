@@ -4,6 +4,10 @@
  */
 package com.uteshop.controller.admin;
 
+import com.uteshop.model.dao.*;
+import com.uteshop.model.entity.Brand;
+import com.uteshop.model.entity.Category;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -20,8 +24,29 @@ import javax.servlet.http.HttpServletResponse;
 public class AdminHome extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
+	private ProductDAO proDao;
+	private UserDAO userDAO;
+	private CategoryDAO categoryDAO;
+	private BrandDAO brandDAO;
+	private InformationDAO infoDAO;
+	private RoleDAO roleDAO;
+	private OrderDAO orderDAO;
+	private OrderDetailDAO orderDetailDAO;
 
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+	@Override
+	public void init() throws ServletException {
+		super.init();
+		proDao = new ProductDAO();
+		userDAO = new UserDAO();
+		categoryDAO = new CategoryDAO();
+		brandDAO = new BrandDAO();
+		infoDAO = new InformationDAO();
+		roleDAO = new RoleDAO();
+		orderDAO = new OrderDAO();
+		orderDetailDAO = new OrderDetailDAO();
+	}
+
+	protected void processRequest(HttpServletRequest request, HttpServletResponse response)
 	    throws ServletException, IOException {
 	response.setContentType("text/html;charset=UTF-8");
 	try ( PrintWriter out = response.getWriter()) {
@@ -42,7 +67,26 @@ public class AdminHome extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
 	    throws ServletException, IOException {
-	request.getRequestDispatcher("/view/admin/index.jsp").forward(request, response);
+
+		int countPro = proDao.count();
+		int countUser = userDAO.count();
+		int countcate = categoryDAO.count();
+		int countorder = orderDAO.count();
+		int countorderdetail = orderDetailDAO.count();
+		int countinfor = infoDAO.count();
+		int countbrand = brandDAO.count();
+		int countrole = roleDAO.count();
+
+		request.setAttribute("countPro", countPro);
+		request.setAttribute("countUser", countUser);
+		request.setAttribute("countCate", countcate);
+		request.setAttribute("countOrder", countorder);
+		request.setAttribute("countOrderDetail", countorderdetail);
+		request.setAttribute("countInfo", countinfor);
+		request.setAttribute("countBrand", countbrand);
+		request.setAttribute("countRole", countrole);
+
+		request.getRequestDispatcher("/view/admin/index.jsp").forward(request, response);
     }
 
     @Override

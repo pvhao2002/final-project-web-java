@@ -1,5 +1,6 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:include page="header/admin-header.jsp"></jsp:include>
     <div id="layoutSidenav_content">
 	<main>
@@ -46,7 +47,7 @@
 				style="width: 100px; height: 40px"
 				/>
 			</td>
-			<td>${item.description}</td>
+			<td style="width: 600px;">${item.description}</td>
 			<td>${item.price}</td>
 			<td>${item.releaseDate}</td>
 			<td>

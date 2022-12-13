@@ -1,3 +1,6 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <jsp:include page="/view/admin/header/action-header.jsp"></jsp:include>
     <div id="layoutSidenav_content">
 	<main>
@@ -80,4 +83,4 @@
 	    </div>
 	</div>
     </main>
-    <jsp:include page="/view/admin/footer//admin-footer.jsp"></jsp:include>
+    <jsp:include page="/view/admin/footer/admin-footer.jsp"></jsp:include>
