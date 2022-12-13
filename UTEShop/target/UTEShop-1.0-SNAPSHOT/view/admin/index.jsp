@@ -29,7 +29,7 @@
 			<div
 			    class="card-footer d-flex align-items-center justify-content-between"
 			    >
-			    <div class="small text-white">Total number: ${countUser}}</div>
+			    <div class="small text-white">Total number: ${countUser}</div>
 			</div>
 		    </div>
 		</div>

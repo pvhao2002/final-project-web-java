@@ -17,23 +17,6 @@ class UserDAOTest {
         userDAO.close();
     }
 
-    @Test
-    void testCreateUser() {
-        User user = new User();
-        user.setEmail("tranquoctuantqd2002@gmail.com");
-        user.setFullName("Tran Quoc Tuan");
-        user.setPassword("123");
-        user.setPhoneNumber("0337981963");
-        user.setAddress("TPHCM");
-        Role roleid = new Role();
-        roleid.setRoleId(0);
-        user.setRoleid(roleid);
-        user = userDAO.create(user);
-
-        Assertions.assertTrue(user.getId() > 0);
-    }
-
-
 //    @Test
 //    void testDeleteUser() {
 //        Integer userId = 3;
