@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
  */
 package net.controller.admin;
+
 import java.text.SimpleDateFormat;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -158,21 +159,24 @@ public class ProductController extends HttpServlet {
 	    String proDecr = request.getParameter("description");
 	    Long price = Long.valueOf(request.getParameter("price"));
 	    Date releaseDate = new SimpleDateFormat("yyyy-dd-MM").parse(request.getParameter("releaseDate"));
-	    Category cate = categoryDao.getItem(Integer.valueOf(request.getParameter("category")));
-//	    Brand brand = brandDao.getItem(Integer.parseInt(request.getParameter("brand")));
-//	    Information info = infoDao.getItem(Integer.parseInt(request.getParameter("info")));
 	    System.out.println(proName);
 	    System.out.println(proImg);
 	    System.out.println(proDecr);
 	    System.out.println(price.toString());
-	    System.out.println(cate.toString());
-	    
-	    
+
+	    Category cate = categoryDao.getItem(Integer.valueOf(request.getParameter("category")));
+//	    Brand brand = brandDao.getItem(Integer.parseInt(request.getParameter("brand")));
+//	    Information info = infoDao.getItem(Integer.parseInt(request.getParameter("info")));
+	    if (cate != null) {
+		System.out.println(cate.toString());
+	    }else{
+		System.out.println("null");
+	    }
+
 //	    System.out.println(request.getParameter("category"));
 //	    System.out.println(request.getParameter("brand"));
 //	    System.out.println(request.getParameter("info"));
-	   // BeanUtils.populate(item, request.getParameterMap());
-	    
+	    // BeanUtils.populate(item, request.getParameterMap());
 //	    String proName = request.getParameter("productName");
 //	    String image = request.getParameter("image");
 //	    String decrib = request.getParameter("description");
@@ -182,6 +186,7 @@ public class ProductController extends HttpServlet {
 	    list(request, response);
 	} catch (Exception e) {
 	    System.out.println("error");
+	    e.printStackTrace();
 	}
     }
 

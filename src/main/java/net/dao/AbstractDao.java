@@ -88,7 +88,7 @@ public abstract class AbstractDao<T> {
 	    // start a transaction
 	    transaction = session.beginTransaction();
 	    // get an user object
-	    entity = session.get(entityClass, id);
+	    entity = session.load(entityClass, id);
 	    // commit transaction
 	    transaction.commit();
 	} catch (Exception e) {
