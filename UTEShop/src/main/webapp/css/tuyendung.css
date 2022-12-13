@@ -1,0 +1,25 @@
+.body-tuyendung{
+    width: 90%;
+}
+.tuyendung-header{
+    height: 40px;
+    font-weight: bold;
+    line-height: 40px;
+    padding-left: 10px;
+    background: #00cec9;
+}
+.tuyendung-info{
+    margin: 10px;
+}
+.tieude{
+    color: red;
+    text-align: center;
+    font-size: 28px;
+}
+.tuyendung-noidung{
+    margin:10px 0 15px 25px;
+}
+ul li span{
+    font-weight: bold;
+    color: #F7941D;
+}

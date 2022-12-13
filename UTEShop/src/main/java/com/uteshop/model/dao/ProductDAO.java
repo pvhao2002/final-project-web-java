@@ -1,0 +1,121 @@
+package com.uteshop.model.dao;
+
+import com.uteshop.model.entity.Product;
+import com.uteshop.model.entity.User;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.Query;
+import java.util.Date;
+import java.util.List;
+
+public class ProductDAO extends AbstractDAO<Product> implements GenericDAO<Product> {
+
+    @Override
+    public Product create(Product product) {return super.create(product);}
+
+    @Override
+    public Product update(Product product) {return super.update(product);}
+
+    @Override
+    public int count() {return super.countWithNamedQuery("Product.countAll");}
+
+    @Override
+    public Product find(Object productId) {
+        return super.find(Product.class, productId);
+    }
+    public int getNumberPage(){
+        int total = count();
+        int countPage = 0;
+        countPage = total / 12;
+        if(total % 12 != 0){
+            countPage++;
+        }
+        return countPage;
+    }
+    @Override
+    public void delete(Object productId) {super.delete(Product.class, productId);}
+
+    public List<Product> getAll() {return super.findWithNamedQuery("Product.getAll");}
+
+    //phan trang
+    public List<Product> getAllProduct(int indexPage) {return super.findWithNamedQuery("Product.getAll", indexPage, 12);}
+
+    public List<Product> listTrendProducts(long from1, long to1) {
+        return super.findWithNamedQuery("Product.listTrendProducts", "from1", from1, "to1", to1, 4);
+    }
+
+    public List<Product> listCheapProducts() {
+        return super.findWithNamedQuery("Product.listCheapProducts", 3);
+    }
+
+    public List<Product> listNewProducts() {
+        return super.findWithNamedQuery("Product.listNewProducts", 3);
+    }
+    public List<Product> listOldProducts() {
+        return super.findWithNamedQuery("Product.listOldProducts", 3);
+    }
+
+    public List<Product> listDiscountProducts(Date from1, Date to1, long from2, long to2) {
+        return super.findWithNamedQuery("Product.listDiscountProducts", "from1", from1, "to1", to1, "from2", from2, "to2", to2);
+    }
+
+    public List<Product> getProductsByPrice(long from, long to) {
+        return super.findWithNamedQuery("Product.getProductsByPrice", "from", from, "to", to);
+    }
+
+    public List<Product> listByCategory(int categoryId) {
+        return super.findWithNamedQuery("Product.findByCategory", "categoryId", categoryId);
+    }
+
+    public List<Product> listByBrand(int brandId) {
+        return super.findWithNamedQuery("Product.findByBrand", "brandId", brandId);
+    }
+
+    public List<Product> searchHeader(String keyword) {
+        return super.findWithNamedQuery("Product.searchHeader", "keyword", keyword);
+    }
+    public List<Product> search(String keyword) {
+        return super.findWithNamedQuery("Product.search", "keyword", keyword);
+    }
+
+    public List<Product> sortByPriceDesc(int indexPage) {
+        return super.findWithNamedQuery("Product.sortByPriceDesc", indexPage, 12);
+    }
+
+    public List<Product> sortByPriceAsc(int indexPage) {
+        return super.findWithNamedQuery("Product.sortByPriceAsc", indexPage, 12);
+    }
+
+    public List<Product> sortByNameDesc(int indexPage) {
+        return super.findWithNamedQuery("Product.sortByNameDesc", indexPage, 12);
+    }
+
+    public List<Product> sortByNameAsc(int indexPage) {
+        return super.findWithNamedQuery("Product.sortByNameAsc", indexPage, 12);
+    }
+    public List<Product> randomProduct() {
+        return super.findWithNamedQuery("Product.randomProduct", 8);
+    }
+
+    public List<Product> searchByCheck(int[] cid) {
+        String sql = "SELECT p FROM Product p";
+        if (cid != null) {
+            sql += " WHERE p.brandId in(";
+            for (int i = 0; i < cid.length; i++) {
+                sql += cid[i] + ",";
+            }
+            if (sql.endsWith(",")) {
+                sql = sql.substring(0, sql.length() - 1);
+            }
+            sql += ")";
+        }
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("phoneWeb");
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        Query query = entityManager.createQuery(sql);
+        List<Product> result = query.getResultList();
+        entityManager.close();
+        return result;
+    }
+}

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd" version="2.1">
+    <persistence-unit name="phoneWeb">
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+        <class>com.uteshop.model.entity.Product</class>
+        <class>com.uteshop.model.entity.Brand</class>
+        <class>com.uteshop.model.entity.Category</class>
+        <class>com.uteshop.model.entity.Information</class>
+        <class>com.uteshop.model.entity.Orders</class>
+        <class>com.uteshop.model.entity.OrderDetail</class>
+        <class>com.uteshop.model.entity.User</class>
+        <class>com.uteshop.model.entity.Role</class>
+        <class>com.uteshop.model.entity.Contact</class>
+        <class>com.uteshop.model.entity.Review</class>
+
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/demodb?useSSL=false" />
+            <property name="javax.persistence.jdbc.user" value="root" />
+            <property name="javax.persistence.jdbc.password" value="12345" />
+
+            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.format_sql" value="true" />
+            <property name="hibernate.use_sql_comments" value="true"/>
+            <property name="org.hibernate.SQL" value="debug"/>
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQL8Dialect"/>
+<!--            <property name="javax.persistence.schema-generation.database.action"-->
+<!--                      value="drop-and-create"/>-->
+        </properties>
+    </persistence-unit>
+</persistence>
