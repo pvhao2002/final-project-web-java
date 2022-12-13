@@ -10,29 +10,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>UTEShop-Trang-chu</title>
-    <link rel="icon" type="image/png" href="images/favicon-32x32.png">
+    <link rel="icon" type="image/png" href="view/web/images/favicon-32x32.png">
     <link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/magnific-popup.min.css">
-    <link rel="stylesheet" href="css/font-awesome.css">
-    <link rel="stylesheet" href="css/jquery.fancybox.min.css">
-    <link rel="stylesheet" href="css/themify-icons.css">
-    <link rel="stylesheet" href="css/niceselect.css">
-    <link rel="stylesheet" href="css/animate.css">
-    <link rel="stylesheet" href="css/flex-slider.min.css">
-    <link rel="stylesheet" href="css/owl-carousel.css">
-    <link rel="stylesheet" href="css/slicknav.min.css">
+    <link rel="stylesheet" href="view/web/css/bootstrap.css">
+    <link rel="stylesheet" href="view/web/css/magnific-popup.min.css">
+    <link rel="stylesheet" href="view/web/css/font-awesome.css">
+    <link rel="stylesheet" href="view/web/css/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="view/web/css/themify-icons.css">
+    <link rel="stylesheet" href="view/web/css/niceselect.css">
+    <link rel="stylesheet" href="view/web/css/animate.css">
+    <link rel="stylesheet" href="view/web/css/flex-slider.min.css">
+    <link rel="stylesheet" href="view/web/css/owl-carousel.css">
+    <link rel="stylesheet" href="view/web/css/slicknav.min.css">
 
-    <!-- Eshop StyleSheet -->
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="css/responsive.css">
-
+    <link rel="stylesheet" href="view/web/css/reset.css">
+    <link rel="stylesheet" href="view/web/style.css">
+    <link rel="stylesheet" href="view/web/css/responsive.css">
 </head>
 <body class="js">
 <!-- Header -->
-<jsp:include page="common/header.jsp"></jsp:include>
+<jsp:include page="/view/web/common/header.jsp"></jsp:include>
 <!--/ End Header -->
 
 <!-- start banner -->
@@ -42,17 +40,16 @@
             <div class="homepage">
                 <div class="homepage-image">
                     <div class="homepage-left">
-                        <i class="fas fa-chevron-left homepage-left-icon-back"></i> <a href="" class="homepage-left-item">
-                        <img src="images/banner3.png"
-                             alt="" class="homepage-left-img">
+                        <i class="fas fa-chevron-left homepage-left-icon-back"></i> <a href="#" class="homepage-left-item">
+                        <img src="view/web/images/banner3.png" alt="" class="homepage-left-img">
                     </a> <i class="fas fa-chevron-right homepage-left-icon-next"></i>
                     </div>
                     <div class="homepage-right">
                         <a href="#" class="homepage-right-item">
-                            <img src="images/banner1.png">
+                            <img src="view/web/images/banner1.png">
                         </a>
                         <a href="#" class="homepage-right-item">
-                            <img src="images/banner2.png">
+                            <img src="view/web/images/banner2.png">
                         </a>
                     </div>
                 </div>
@@ -290,31 +287,7 @@
 <!-- End Product new-->
 
 <!-- Start Shop Services Area and Shop Newsletter-->
-<jsp:include page="common/section.jsp"></jsp:include>
+<jsp:include page="/view/web/common/section.jsp"></jsp:include>
 <!-- End Shop Services Area and Shop Newsletter -->
 
-<!-- Start Footer Area -->
-<jsp:include page="common/footer.jsp"></jsp:include>
-<!-- /End Footer Area -->
-
-<!-- Jquery -->
-<script src="js/jquery.min.js"></script>
-<script src="js/jquery-migrate-3.0.0.js"></script>
-<script src="js/jquery-ui.min.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/colors.js"></script>
-<script src="js/slicknav.min.js"></script>
-<script src="js/owl-carousel.js"></script>
-<script src="js/magnific-popup.js"></script>
-<script src="js/waypoints.min.js"></script>
-<script src="js/finalcountdown.min.js"></script>
-<script src="js/nicesellect.js"></script>
-<script src="js/flex-slider.js"></script>
-<script src="js/scrollup.js"></script>
-<script src="js/onepage-nav.min.js"></script>
-<script src="js/easing.js"></script>
-<script src="js/active.js"></script>
-<script src="js/homepage.js"></script>
-</body>
-</html>
+<jsp:include page="/view/web/common/footer.jsp"></jsp:include>

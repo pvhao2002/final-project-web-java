@@ -19,7 +19,7 @@ public class CustomerProfileServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String url = "/customer_profile.jsp";
+        String url = "/view/web/customer_profile.jsp";
 
         String roleName = LoginServlet.RoleName;
         request.setAttribute("roleName", roleName);

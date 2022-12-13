@@ -27,7 +27,7 @@ public class SignUpServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String url = "/registration.jsp";
+        String url = "/view/web/registration.jsp";
 
         String name = request.getParameter("name");
         String email = request.getParameter("email");

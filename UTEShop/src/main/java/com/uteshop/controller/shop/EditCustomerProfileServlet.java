@@ -21,7 +21,7 @@ public class EditCustomerProfileServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String url = "/edit_profile.jsp";
+        String url = "/view/web/edit_profile.jsp";
 
         String email = request.getParameter("email");
         String name = request.getParameter("name");

@@ -19,7 +19,7 @@ public class EmailPasswordServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String url = "/email_password.jsp";
+        String url = "/view/web/email_password.jsp";
         String username = request.getParameter("username");
         String check = null;
 

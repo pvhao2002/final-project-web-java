@@ -25,7 +25,7 @@ public class ShopDetailServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String url ="/shopDetail.jsp";
+        String url ="/view/web/shopDetail.jsp";
         ProductDAO productDAO = new ProductDAO();
 
         Product p = null;

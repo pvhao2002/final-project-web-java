@@ -37,7 +37,7 @@ public class ShopServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String url ="/shop.jsp";
+        String url ="/view/web/shop.jsp";
 
         String[] pp={"Dưới 2 triệu","Từ 2-4 triệu","Từ 4-7 triệu","Từ 7-13 triệu","Từ 13-20 triệu","Trên 20 triệu"};
         int numberPage = 0;

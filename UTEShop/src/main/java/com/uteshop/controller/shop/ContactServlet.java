@@ -18,7 +18,7 @@ public class ContactServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String url = "/contact.jsp";
+        String url = "/view/web/contact.jsp";
         String check = null;
         String email = request.getParameter("email");
         String name = request.getParameter("name");

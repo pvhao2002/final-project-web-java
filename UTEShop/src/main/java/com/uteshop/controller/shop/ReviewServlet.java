@@ -22,7 +22,7 @@ public class ReviewServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String url = "/shopDetail?pid=" + request.getParameter("productId");
+        String url = "/view/web/shopDetail?pid=" + request.getParameter("productId");
 
         Review review = new Review();
         ProductDAO productDAO = new ProductDAO();

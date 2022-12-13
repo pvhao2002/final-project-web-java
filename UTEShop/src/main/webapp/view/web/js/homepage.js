@@ -1,7 +1,7 @@
 const homePageImage = document.querySelector(".homepage-left-img");
 const homePageImageNext = document.querySelector(".homepage-left-icon-next")
 const homePageImageBack = document.querySelector(".homepage-left-icon-back")
-const arraySrc = ["images/banner7.png", "images/banner5.png", "images/banner6.png", "images/banner4.png"]
+const arraySrc = ["view/web/images/banner7.png", "view/web/images/banner5.png", "view/web/images/banner6.png", "view/web/images/banner4.png"]
 homePageImageNext.addEventListener("click",handleNextSrc);
 let countSrc = 0;
 function handleNextSrc(event) {

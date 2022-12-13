@@ -26,7 +26,7 @@ public class EmailCodeServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String url = "/email_code.jsp";
+        String url = "/view/web/email_code.jsp";
         String code = request.getParameter("code");
         String check = null;
 

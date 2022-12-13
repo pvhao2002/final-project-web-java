@@ -56,7 +56,7 @@
                     </div>
                     <div class="col-lg-6 col-12">
                         <div class="right">
-                            <img src="images/payments.png">
+                            <img src="view/web/images/payments.png">
                         </div>
                     </div>
                 </div>
@@ -64,4 +64,26 @@
         </div>
     </div>
 </footer>
+
+<script src="view/web/js/jquery.min.js"></script>
+<script src="view/web/js/jquery-migrate-3.0.0.js"></script>
+<script src="view/web/js/jquery-ui.min.js"></script>
+<script src="view/web/js/popper.min.js"></script>
+<script src="view/web/js/bootstrap.min.js"></script>
+<script src="view/web/js/colors.js"></script>
+<script src="view/web/js/slicknav.min.js"></script>
+<script src="view/web/js/owl-carousel.js"></script>
+<script src="view/web/js/magnific-popup.js"></script>
+<script src="view/web/js/waypoints.min.js"></script>
+<script src="view/web/js/finalcountdown.min.js"></script>
+<script src="view/web/js/nicesellect.js"></script>
+<script src="view/web/js/flex-slider.js"></script>
+<script src="view/web/js/scrollup.js"></script>
+<script src="view/web/js/onepage-nav.min.js"></script>
+<script src="view/web/js/easing.js"></script>
+<script src="view/web/js/active.js"></script>
+<script src="view/web/js/homepage.js"></script>
+<script src="view/web/js/review.js"></script>
+</body>
+</html>
 

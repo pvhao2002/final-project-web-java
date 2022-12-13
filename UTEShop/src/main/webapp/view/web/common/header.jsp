@@ -44,7 +44,7 @@
                     <!-- Logo -->
                     <div class="logo">
                         <a href="home" class="logo-text">
-                            <img src="images/logo.png">
+                            <img src="view/web/images/logo.png">
                         </a>
                     </div>
                     <!--/ End Logo -->
